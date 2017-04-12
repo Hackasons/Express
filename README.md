@@ -11,6 +11,6 @@ author name naoya koiso
 #before start
 1. cd ./Express
 2. git pull
+3. mongod -dbpath /usr/local/var/mongodb
+4. mongo
 3. node ./bin/www
-4. mongod -dbpath /usr/local/var/mongodb
-5. mongo

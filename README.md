@@ -5,7 +5,7 @@ not commcial site
 
 this is my our practice
 
-author name naoya koiso
+author name naoya koiso(hikaru love)
             sueken
             suzu9te
 

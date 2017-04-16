@@ -8,7 +8,7 @@ this is my our practice
 author name naoya koiso
             sueken
 
-#before start
+#to start
 1. cd ./Express
 2. git pull
 3. mongod -dbpath /usr/local/var/mongodb

@@ -1,18 +1,16 @@
 let express = require('express');
 let router = express.Router();
 
-let array = [
-    "sueken",
-    "kengo",
-    "suenaga"
-];
-let name = {
-    name : "sueken"
-}
+let mongodb = require("../mongo");
+
+let collection = "users";
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index',name);
+    mongodb(collection).find().toArray(function(err, docs){
+        console.log(docs);
+        res.render('index',{users : docs });
+    });
 });
 
 module.exports = router;

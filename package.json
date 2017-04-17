@@ -13,7 +13,8 @@
     "express": "~4.15.2",
     "mongodb": "^2.2.25",
     "morgan": "~1.8.1",
-    "serve-favicon": "~2.4.2"
+    "serve-favicon": "~2.4.2",
+    "uuid": "^3.0.1"
   },
   "devDependencies": {
     "gulp-ejs": "^3.0.1"

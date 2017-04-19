@@ -1,5 +1,17 @@
 <% include ../header %>
 
+<p>hello edit page</p>
+this is edit.ejs
+<a href="notes/create">create new posts</a>
 
+<li><%= notes.title %></li>
+<li><%= notes.text %></li>
+
+<form action="<%= notes.noteId %>" method="post">
+<input type="text" name="title" value="<%= notes.title %>">
+<input type="text" name="text" value="<%= notes.text %>">
+<input type="hidden" name="_method" value="PUT">
+<input type="submit" value="add">
+</form>
 
 <% include ../footer %>

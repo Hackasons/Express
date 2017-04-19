@@ -1,6 +1,7 @@
 let express = require('express');
 let uuid = require('uuid');
 let router = express.Router();
+<<<<<<< HEAD
 let crypto = require("crypto");
 
 let mongodb = require("../mongo");
@@ -23,6 +24,12 @@ let decrypt = (text) => {
     dec += decipher.final('utf8');
     return dec;
 }
+=======
+
+let mongodb = require("../mongo");
+
+let collection = "posts";
+>>>>>>> c6919b0c6262ec989d8240a6f6e69fd6175e6fdf
 
 
 //routings
@@ -30,6 +37,7 @@ router.get('/login', function(req, res, next) {
     res.render('accounts/login');
 });
 
+<<<<<<< HEAD
 router.post('/login', function(req, res, next) {
     mongodb(collection).findOne( { email: req.body.email }, function(err, results){
         if (req.body.password === decrypt(results.password)) {
@@ -41,11 +49,14 @@ router.post('/login', function(req, res, next) {
 });
 
 
+=======
+>>>>>>> c6919b0c6262ec989d8240a6f6e69fd6175e6fdf
 router.get('/signup', function(req, res, next) {
     res.render('accounts/signup');
 });
 
 router.post('/signup', function(req, res, next) {
+<<<<<<< HEAD
     req.body.password = encrypt(req.body.password)
     req.body.accountId = uuid.v4().replace(/-/g, '');
     mongodb(collection).insertOne( req.body ).then(function(results) {
@@ -54,4 +65,12 @@ router.post('/signup', function(req, res, next) {
 });
 
 
+=======
+    res.redirect('/');
+});
+
+
+
+
+>>>>>>> c6919b0c6262ec989d8240a6f6e69fd6175e6fdf
 module.exports = router;

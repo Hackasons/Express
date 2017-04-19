@@ -1,0 +1,18 @@
+<% include ../header %>
+
+
+<p>hello detail page</p>
+
+<a href="notes/create">create new posts</a>
+
+<% for (let i = 0; i < notes.length; i++) {%>
+  <li><%= notes[i].title %></li>
+  <li><%= notes[i].text %></li>
+  <a href = "notes/<%= notes[i].noteId%>">detail\</a>
+  <a href = "notes/edit/<%= notes[i].noteId%>">edit\</a>
+<form method="POST" action="notes/delete/<%= notes[i].noteId %>">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="delete">
+</form>
+<%}%>
+<% include ../footer %>

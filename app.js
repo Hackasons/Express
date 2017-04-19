@@ -6,6 +6,8 @@ let favicon = require('serve-favicon');
 let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
+let connect = require('connect');
+let methodOverride = require('method-override');
 
 let index = require('./routes/index');
 let services = require('./routes/services');
@@ -13,6 +15,8 @@ let pricing = require('./routes/pricing');
 let about = require('./routes/about');
 let contact = require('./routes/contact');
 let posts = require('./routes/posts');
+let accounts = require('./routes/accounts');
+let notes = require('./routes/notes');
 
 let app = express();
 
@@ -26,6 +30,14 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use( methodOverride(function(req, res){
+  if(req.body && typeof req.body === 'object' && '_method' in req.body){
+    let method = req.body._method;
+    delete req.body._method;
+    return method;
+  }
+}) );
+
 
 //TODO: use session Token for security;
 // app.use(express.session({secret: "hshshshsh"}));
@@ -43,7 +55,9 @@ app.use('/contact', contact);
 app.use('/about', about);
 app.use('/services', services);
 app.use('/pricing', pricing);
-app.use('/posts', posts)
+app.use('/notes', notes);
+app.use('/posts', posts);
+app.use('/accounts', accounts);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

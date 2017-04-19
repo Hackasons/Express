@@ -1,0 +1,16 @@
+<% include ../header %>
+
+
+<p>hello create page</p>
+
+<a href="posts/create">create new posts</a>
+
+<% for (let i = 0; i < posts.length; i++) {%>
+    <li><%= posts[i].title %></li>
+    <li><%= posts[i].text %></li>
+    <a href="posts/<%= posts[i].postId %>">detail</a>
+    <a href="posts/edit/<%= posts[i].postId %>">edit</a>
+    <% } %>
+
+
+    <% include ../footer %>

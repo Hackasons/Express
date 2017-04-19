@@ -13,6 +13,7 @@ let pricing = require('./routes/pricing');
 let about = require('./routes/about');
 let contact = require('./routes/contact');
 let posts = require('./routes/posts');
+let accounts = require('./routes/accounts');
 
 let app = express();
 
@@ -43,7 +44,8 @@ app.use('/contact', contact);
 app.use('/about', about);
 app.use('/services', services);
 app.use('/pricing', pricing);
-app.use('/posts', posts)
+app.use('/posts', posts);
+app.use('/accounts', accounts);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
